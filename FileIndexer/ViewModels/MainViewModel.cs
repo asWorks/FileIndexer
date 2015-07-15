@@ -321,6 +321,7 @@ namespace FileIndexer.ViewModels
                     item.strDate = fi.LastWriteTime.ToLongDateString(); 
 
                     // Test GitHub
+                    // Test GitHub 2
                    
                     FilesRepository.AddFileToDB(item);
                 }
