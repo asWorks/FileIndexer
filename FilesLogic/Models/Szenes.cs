@@ -25,7 +25,10 @@ namespace FilesLogic.Models
         public string FileNameOnly { get; set; }
         public virtual List<Files> files { get; set; }
 
-
+        public Szenes()
+        {
+            files = new List<Files>();
+        }
 
 
 

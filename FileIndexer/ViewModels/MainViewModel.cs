@@ -11,6 +11,7 @@ using DAL;
 using AutoMapper;
 using System.Collections.ObjectModel;
 using DAL.Repositories;
+using BusinessLogic.Repositories;
 
 
 namespace FileIndexer.ViewModels
@@ -306,6 +307,62 @@ namespace FileIndexer.ViewModels
         {
             ResetModel();
 
+
+            IndexerModel db = new IndexerModel();
+            GenericRepository<Files> uRep = new GenericRepository<Files>(db);
+
+
+            try
+            {
+                var r = db.Files;
+                if (r.Any())
+                {
+                    ReportMessage("First : " + r.Count().ToString());
+                }
+            }
+            catch (Exception)
+            {
+
+                ReportMessage("First doesnot work. ");
+            }
+
+            try
+            {
+                using (db = new IndexerModel())
+                {
+                    var r = db.Files;
+                    if (r.Any())
+                    {
+                        ReportMessage("Second : " + r.Count().ToString());
+                    }
+                }
+            }
+            catch (Exception)
+            {
+
+                ReportMessage("Second doesnot work. ");
+            }
+
+
+
+            try
+            {
+                var q = uRep.GetAll();
+
+                if (q.Any())
+                {
+                    ReportMessage("Repository : " + q.Count().ToString());
+                }
+            }
+            catch (Exception)
+            {
+
+                ReportMessage("Repository doesnot work. ");
+            }
+            
+
+
+
             var fi = new FileInfo(FileUri);
             if (fi != null)
             {
@@ -322,7 +379,7 @@ namespace FileIndexer.ViewModels
 
                 //    // Test GitHub
                 //    // Test GitHub 2
-                   
+
                 //    FilesRepository.AddFileToDB(item);
                 //}
 

@@ -110,6 +110,10 @@
     <None Include="App.config" />
   </ItemGroup>
   <ItemGroup>
+    <ProjectReference Include="..\BusinessLogic\BusinessLogic.csproj">
+      <Project>{f284ed71-7ce7-41b5-8ecf-7b613e8b62d6}</Project>
+      <Name>BusinessLogic</Name>
+    </ProjectReference>
     <ProjectReference Include="..\DAL\DAL.csproj">
       <Project>{f221caa3-8a0d-4325-9a9c-9fe1129ee048}</Project>
       <Name>DAL</Name>
