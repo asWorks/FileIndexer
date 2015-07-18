@@ -12,7 +12,7 @@ namespace FilesLogic.Models
 
         [Key]
         public Guid FileID { get; set; }
-     
+
 
         public string Uri { get; set; }
         public long size { get; set; }
@@ -20,7 +20,7 @@ namespace FilesLogic.Models
         public string strDate { get; set; }
         public long FileTime { get; set; }
 
-       public Guid SzenesID { get; set; }
-       public Szenes Szene { get; set; }
+        public Guid SzenesID { get; set; }
+        public virtual Szenes Szene { get; set; }
     }
 }

@@ -309,22 +309,22 @@ namespace FileIndexer.ViewModels
             var fi = new FileInfo(FileUri);
             if (fi != null)
             {
-                FilesRepository.FilesExistsResult res = FilesRepository.CheckFileExists(fi.FullName, fi.Name, fi.Length, fi.LastWriteTime.ToLongDateString(),fi.LastWriteTime.ToFileTime());
-                if (res == FilesRepository.FilesExistsResult.FileDoesNotExist)
-                {
-                    var item = new Files();
-                    item.FileID = Guid.NewGuid();
-                    item.Uri = fi.FullName;
-                    item.size = fi.Length;
-                    item.Date = fi.LastWriteTime;
-                    item.FileTime = fi.LastWriteTime.ToFileTime();
-                    item.strDate = fi.LastWriteTime.ToLongDateString(); 
+                //FilesRepository.FilesExistsResult res = FilesRepository.CheckFileExists(fi.FullName, fi.Name, fi.Length, fi.LastWriteTime.ToLongDateString(),fi.LastWriteTime.ToFileTime());
+                //if (res == FilesRepository.FilesExistsResult.FileDoesNotExist)
+                //{
+                //    var item = new Files();
+                //    item.FileID = Guid.NewGuid();
+                //    item.Uri = fi.FullName;
+                //    item.size = fi.Length;
+                //    item.Date = fi.LastWriteTime;
+                //    item.FileTime = fi.LastWriteTime.ToFileTime();
+                //    item.strDate = fi.LastWriteTime.ToLongDateString(); 
 
-                    // Test GitHub
-                    // Test GitHub 2
+                //    // Test GitHub
+                //    // Test GitHub 2
                    
-                    FilesRepository.AddFileToDB(item);
-                }
+                //    FilesRepository.AddFileToDB(item);
+                //}
 
 
 
