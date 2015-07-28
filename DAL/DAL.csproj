@@ -1,0 +1,123 @@
+﻿<?xml version="1.0" encoding="utf-8"?>
+<Project ToolsVersion="12.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
+  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
+  <PropertyGroup>
+    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
+    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
+    <ProjectGuid>{F221CAA3-8A0D-4325-9A9C-9FE1129EE048}</ProjectGuid>
+    <OutputType>Library</OutputType>
+    <AppDesignerFolder>Properties</AppDesignerFolder>
+    <RootNamespace>DAL</RootNamespace>
+    <AssemblyName>DAL</AssemblyName>
+    <TargetFrameworkVersion>v4.5</TargetFrameworkVersion>
+    <FileAlignment>512</FileAlignment>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
+    <DebugSymbols>true</DebugSymbols>
+    <DebugType>full</DebugType>
+    <Optimize>false</Optimize>
+    <OutputPath>bin\Debug\</OutputPath>
+    <DefineConstants>DEBUG;TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
+    <DebugType>pdbonly</DebugType>
+    <Optimize>true</Optimize>
+    <OutputPath>bin\Release\</OutputPath>
+    <DefineConstants>TRACE</DefineConstants>
+    <ErrorReport>prompt</ErrorReport>
+    <WarningLevel>4</WarningLevel>
+  </PropertyGroup>
+  <ItemGroup>
+    <Reference Include="EntityFramework">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.dll</HintPath>
+    </Reference>
+    <Reference Include="EntityFramework.SqlServer">
+      <HintPath>..\packages\EntityFramework.6.1.1\lib\net45\EntityFramework.SqlServer.dll</HintPath>
+    </Reference>
+    <Reference Include="System" />
+    <Reference Include="System.ComponentModel.DataAnnotations" />
+    <Reference Include="System.Core" />
+    <Reference Include="System.Runtime.Serialization" />
+    <Reference Include="System.Security" />
+    <Reference Include="System.Xml.Linq" />
+    <Reference Include="System.Data.DataSetExtensions" />
+    <Reference Include="Microsoft.CSharp" />
+    <Reference Include="System.Data" />
+    <Reference Include="System.Xml" />
+  </ItemGroup>
+  <ItemGroup>
+    <Compile Include="IndexerModel.cs" />
+    <Compile Include="Migrations\201507131301518_InitialCreate.cs" />
+    <Compile Include="Migrations\201507131301518_InitialCreate.Designer.cs">
+      <DependentUpon>201507131301518_InitialCreate.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507131321344_Protocoll.cs" />
+    <Compile Include="Migrations\201507131321344_Protocoll.Designer.cs">
+      <DependentUpon>201507131321344_Protocoll.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507131413134_SizeToLong.cs" />
+    <Compile Include="Migrations\201507131413134_SizeToLong.Designer.cs">
+      <DependentUpon>201507131413134_SizeToLong.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507131935389_AddedSzenes.cs" />
+    <Compile Include="Migrations\201507131935389_AddedSzenes.Designer.cs">
+      <DependentUpon>201507131935389_AddedSzenes.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507150240524_DateToString.cs" />
+    <Compile Include="Migrations\201507150240524_DateToString.Designer.cs">
+      <DependentUpon>201507150240524_DateToString.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\201507150250548_DateToFileTime.cs" />
+    <Compile Include="Migrations\201507150250548_DateToFileTime.Designer.cs">
+      <DependentUpon>201507150250548_DateToFileTime.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\Configuration.cs" />
+    <Compile Include="Properties\AssemblyInfo.cs" />
+    <Compile Include="Repositories\FilesRepository.cs" />
+    <Compile Include="Tools.cs" />
+  </ItemGroup>
+  <ItemGroup>
+    <None Include="App.config" />
+    <None Include="packages.config" />
+  </ItemGroup>
+  <ItemGroup>
+    <ProjectReference Include="..\FilesLogic\FilesLogic.csproj">
+      <Project>{6d262878-71c1-4a65-885b-1309537d3e83}</Project>
+      <Name>FilesLogic</Name>
+    </ProjectReference>
+    <ProjectReference Include="..\Services\Services.csproj">
+      <Project>{c0d20dd0-3d94-460d-bd92-479df9f516bd}</Project>
+      <Name>Services</Name>
+    </ProjectReference>
+  </ItemGroup>
+  <ItemGroup>
+    <EmbeddedResource Include="Migrations\201507131301518_InitialCreate.resx">
+      <DependentUpon>201507131301518_InitialCreate.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507131321344_Protocoll.resx">
+      <DependentUpon>201507131321344_Protocoll.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507131413134_SizeToLong.resx">
+      <DependentUpon>201507131413134_SizeToLong.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507131935389_AddedSzenes.resx">
+      <DependentUpon>201507131935389_AddedSzenes.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507150240524_DateToString.resx">
+      <DependentUpon>201507150240524_DateToString.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\201507150250548_DateToFileTime.resx">
+      <DependentUpon>201507150250548_DateToFileTime.cs</DependentUpon>
+    </EmbeddedResource>
+  </ItemGroup>
+  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
+  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
+       Other similar extension points exist, see Microsoft.Common.targets.
+  <Target Name="BeforeBuild">
+  </Target>
+  <Target Name="AfterBuild">
+  </Target>
+  -->
+</Project>

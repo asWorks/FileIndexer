@@ -12,6 +12,7 @@ using AutoMapper;
 using System.Collections.ObjectModel;
 using DAL.Repositories;
 using BusinessLogic.Repositories;
+using System.Linq.Expressions;
 
 
 namespace FileIndexer.ViewModels
@@ -265,6 +266,7 @@ namespace FileIndexer.ViewModels
             db = new IndexerModel();
             fileItems = new ObservableCollection<Files>();
             DoSave = new RelayCommand(x => doSaveChanges());
+            isDirty = false;
         }
 
 
@@ -347,7 +349,9 @@ namespace FileIndexer.ViewModels
 
             try
             {
-                var q = uRep.GetAll();
+              //  Expression<Func<Files, bool>> filter = (x) => x.size > 325666;
+
+                var q = uRep.GetAllTest((x)=>x.size>325666);
 
                 if (q.Any())
                 {
@@ -366,22 +370,23 @@ namespace FileIndexer.ViewModels
             var fi = new FileInfo(FileUri);
             if (fi != null)
             {
-                //FilesRepository.FilesExistsResult res = FilesRepository.CheckFileExists(fi.FullName, fi.Name, fi.Length, fi.LastWriteTime.ToLongDateString(),fi.LastWriteTime.ToFileTime());
-                //if (res == FilesRepository.FilesExistsResult.FileDoesNotExist)
-                //{
-                //    var item = new Files();
-                //    item.FileID = Guid.NewGuid();
-                //    item.Uri = fi.FullName;
-                //    item.size = fi.Length;
-                //    item.Date = fi.LastWriteTime;
-                //    item.FileTime = fi.LastWriteTime.ToFileTime();
-                //    item.strDate = fi.LastWriteTime.ToLongDateString(); 
+                FilesRep.FilesExistsResult res = FilesRep.CheckFileExists(fi.FullName, fi.Name, fi.Length, fi.LastWriteTime.ToLongDateString(), fi.LastWriteTime.ToFileTime());
+                if (res == FilesRep.FilesExistsResult.FileDoesNotExist)
+                {
+                    var item = new Files();
+                    item.FileID = Guid.NewGuid();
+                    item.Uri = fi.FullName;
+                    item.size = fi.Length;
+                    item.Date = fi.LastWriteTime;
+                    item.FileTime = fi.LastWriteTime.ToFileTime();
+                    item.strDate = fi.LastWriteTime.ToLongDateString();
+                    FileNameOnly = item.Uri;
+                     
+                    // Test GitHub
+                    // Test GitHub 2
 
-                //    // Test GitHub
-                //    // Test GitHub 2
-
-                //    FilesRepository.AddFileToDB(item);
-                //}
+                    FilesRep.AddFileToDB(item);
+                }
 
 
 
