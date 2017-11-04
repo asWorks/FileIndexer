@@ -1,3 +1,6 @@
+Techniques used:
+Generic repository, Dependency Injection, IOC in a basis form
+
 # FileIndexer
 Not finished yet
 purpose of the project was to manage different version of the same video files.
